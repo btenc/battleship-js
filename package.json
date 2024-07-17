@@ -1,7 +1,7 @@
 {
-  "name": "js-project-template",
-  "version": "1.0.1",
-  "description": "My personal basic project template",
+  "name": "battleship-js",
+  "version": "1.0",
+  "description": "Battleship JS project for The Odin Project",
   "main": "index.js",
   "scripts": {
     "test": "jest",

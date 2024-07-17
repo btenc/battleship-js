@@ -10,3 +10,51 @@ h1 {
   background: url(./images/favicon.png);
   color: blue;
 }
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* for debug */
+/*.cell.hidden-ship {
+  background-color: purple;
+}
+
+.cell.hidden-ship.hit {
+  background-color: red;
+}
+*/
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+}
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 30px;
+}
+.hit {
+  background-color: red;
+}
+
+.miss {
+  background-color: blue;
+}
+
+.ship {
+  background-color: grey;
+}
+
+.ship.hit {
+  background-color: red;
+}
