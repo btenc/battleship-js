@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="player-board" class="board"></div>
-    <div id="player2-board" class="board"></div>
-    <button id="reset-game">Reset Game</button>
-    <div id="message"></div>
-  </body>
+    <header>
+      <h1>BattleShip JS</h1>
+    </header>
+    <div class="game-container">
+      <div class="boards-container">
+        <div class="board-container">
+          <h2>Player</h2>
+          <div id="player-board" class="board"></div>
+        </div>
+        <div class="board-container">
+          <h2>Computer</h2>
+          <div id="player2-board" class="board"></div>
+        </div>
+      </div>
+      <button id="reset-game">Reset Game</button>
+      <div id="message"></div>
+    </div>
   </body>
 </html>

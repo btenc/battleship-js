@@ -1,14 +1,125 @@
 @font-face {
-  font-family: "MyFont";
-  src: url("./fonts/my-font.woff") format("woff");
+  font-family: "machine";
+  src: url("./fonts/machine_regular.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
+body {
+  font-family: "machine", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+header {
+  font-size: 4vw; /* Responsive scaling based on viewport width */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 h1 {
-  font-family: "MyFont";
-  background: url(./images/favicon.png);
-  color: blue;
+  font-family: "machine";
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-family: "machine";
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 2.5vw; /* Responsive scaling based on viewport width */
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .boards-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.board-container {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 3rem);
+  grid-template-rows: repeat(10, 3rem);
+  gap: 0.2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border: 0.2rem solid #333;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+  width: 3rem;
+  height: 3rem;
+  border: 0.1rem solid #000;
+  text-align: center;
+  line-height: 3rem;
+  cursor: pointer;
+}
+
+.board .cell:hover:not(.hit):not(.miss) {
+  background-color: #ddd;
+}
+
+.board .cell.ship {
+  background-color: grey;
+}
+
+.board .cell.hit {
+  background-color: red;
+}
+
+.board .cell.miss {
+  background-color: blue;
+}
+
+.board .cell.ship.sunk-ship,
+.board .cell.hidden-ship.sunk-ship {
+  background-color: darkred;
+}
+
+button {
+  font-family: "machine";
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 2.5vw; /* Responsive font size */
+  margin-bottom: 2rem;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#message {
+  font-size: 1.5vw; /* Responsive font size */
+  color: #333;
+  text-align: center;
 }
 
 .hidden {
@@ -20,41 +131,34 @@ h1 {
   opacity: 0.5;
 }
 
-/* for debug */
-/*.cell.hidden-ship {
-  background-color: purple;
-}
+@media (max-width: 767px) {
+  header {
+    font-size: 4vw; /* More responsive scaling for smaller screens */
+    margin-bottom: -2rem; /* Adjusting margin for smaller screens */
+  }
 
-.cell.hidden-ship.hit {
-  background-color: red;
-}
-*/
+  .boards-container {
+    gap: 1rem; /* Reduce gap between boards on mobile */
+  }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(10, 30px);
-  grid-template-rows: repeat(10, 30px);
-  gap: 2px;
-}
-.cell {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 30px;
-}
-.hit {
-  background-color: red;
-}
+  .board {
+    grid-template-columns: repeat(10, 2rem); /* Smaller cells */
+    grid-template-rows: repeat(10, 2rem); /* Smaller cells */
+    padding: 0.5rem; /* Reduce padding for smaller screens */
+  }
 
-.miss {
-  background-color: blue;
-}
+  .cell {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
 
-.ship {
-  background-color: grey;
-}
+  button {
+    font-size: 5vw; /* Larger responsive font size for mobile */
+    padding: 0.8rem 1.6rem;
+  }
 
-.ship.hit {
-  background-color: red;
+  #message {
+    font-size: 3vw; /* Larger responsive font size for mobile */
+  }
 }

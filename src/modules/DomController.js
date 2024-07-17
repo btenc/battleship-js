@@ -17,6 +17,7 @@ class DomController {
     this.initBoard(this.player1BoardElement);
     this.initBoard(this.player2BoardElement);
     this.setupEventListeners();
+    this.resetGame();
   }
 
   initBoard(boardElement) {
@@ -57,6 +58,10 @@ class DomController {
         this.player2BoardElement,
         this.gameLogic.player2.gameboard,
       );
+      this.updateSunkShips(
+        this.player2BoardElement,
+        this.gameLogic.player2.gameboard,
+      );
       const winner = this.gameLogic.checkWinner();
       if (winner) {
         this.endGame(winner);
@@ -75,6 +80,10 @@ class DomController {
         this.gameLogic.player1.gameboard,
       );
       this.updateBoard(
+        this.player1BoardElement,
+        this.gameLogic.player1.gameboard,
+      );
+      this.updateSunkShips(
         this.player1BoardElement,
         this.gameLogic.player1.gameboard,
       );
@@ -105,6 +114,30 @@ class DomController {
         cell.classList.add("miss");
       }
     }
+  }
+
+  updateSunkShips(boardElement, gameboard) {
+    gameboard.ships.forEach((ship) => {
+      if (ship.sunk) {
+        for (let i = 0; i < ship.length; i++) {
+          let x;
+          let y;
+          if (ship.orientation === "horizontal") {
+            x = ship.x;
+            y = ship.y + i;
+          } else {
+            x = ship.x + i;
+            y = ship.y;
+          }
+          const cell = boardElement.querySelector(
+            `[data-x="${x}"][data-y="${y}"]`,
+          );
+          if (cell) {
+            cell.classList.add("sunk-ship");
+          }
+        }
+      }
+    });
   }
 
   displayShips(boardElement, gameboard, isPlayerBoard) {

@@ -2,8 +2,8 @@ const Player = require("./Player");
 
 class GameLogic {
   constructor() {
-    this.player1 = new Player("Player 1");
-    this.player2 = new Player("Player 2", true); // Assuming player 2 is the computer
+    this.player1 = new Player("Player");
+    this.player2 = new Player("The Computer", true); // Assuming player 2 is the computer
   }
 
   playerAttack(player, opponentGameboard, x, y) {

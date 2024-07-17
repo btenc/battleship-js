@@ -11,7 +11,7 @@ module.exports = {
       title: "Battleship JS",
       favicon: "./src/images/favicon.png",
       template: "./src/index.html",
-      filename: "./index.html", // relative to root of the application
+      filename: "index.html", // relative to root of the application
     }),
   ],
   output: {
