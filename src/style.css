@@ -117,7 +117,7 @@ button:hover {
 }
 
 #message {
-  font-size: 1.5vw; /* Responsive font size */
+  font-size: 3vw; /* Responsive font size */
   color: #333;
   text-align: center;
 }
@@ -159,6 +159,6 @@ button:hover {
   }
 
   #message {
-    font-size: 3vw; /* Larger responsive font size for mobile */
+    font-size: 4vw; /* Larger responsive font size for mobile */
   }
 }
